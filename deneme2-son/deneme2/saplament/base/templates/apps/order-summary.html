@@ -1,0 +1,93 @@
+{% extends 'apps/order-index.html' %}
+{% load static %}
+{% block data %}
+
+
+<div class="row "
+style="
+    margin-right: 30px;">
+    <div class="address" >
+
+        <p style="
+    margin-bottom: 0px;">
+            <b>Ülke</b>: {{ address.country }}</p>&nbsp;&nbsp;
+        <p style="
+    margin-bottom: 0px;">
+            <b>Şehir</b>:{{ address.city }}</p>&nbsp;&nbsp;
+        <p style="
+    margin-bottom: 0px;">
+            <b>Adres</b>: {{ address.address }}</p>
+    </div>
+    <div class="content table">
+    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Fotoğraf</th>
+                                    <th scope="col">Ürün adı</th>
+                                    <th scope="col"> Fiyat</th>
+                                    <th scope="col">Adet</th>
+                                    <th scope="col">Toplam Fiyat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        {% for order in order_item %}
+                            <tr>
+                                <th scope="row">#</th>
+                                <td style="display:flex;justify-content:center;align-items:center">
+                                   <a href="/product/{{ order.slug }}"><img src="{% static 'images/' %}{{ order.urun_foto }}"
+                                        class="figure-size" style="height:85px;width:85px"  ></a>
+                            </td>
+                                <td style="text-align:center; padding-top: 35px;" >
+                                {{ order.title }}
+                            </td>
+                                <td style="text-align:center; padding-top: 35px;">
+                                {{ order.price }}₺ss
+                            </td>
+
+                                <td style="text-align:center; padding-top: 35px;">
+
+                               {{ order.quantity }}
+
+                            </td>
+
+                                <td style="text-align:center; padding-top: 35px;">
+
+                                    {{ order.total_price }}₺
+
+
+
+
+
+                                </a> </td>
+
+                            </tr>
+
+                        {% endfor %}
+                                <tr>
+                                    <td></td>
+                                    <td colspan="4"><b> Toplam Fiyat</b></td>
+                                    <td><center> {{ price_sum }} ₺ </center></td>
+
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+{% endblock data %}

@@ -1,0 +1,69 @@
+
+
+{% block footer %}
+<footer>
+        <div class="footer">
+            <div class="footer-container">
+                <div class="footer-row">
+                        <!--ILETISIM-->
+                    <div class="footer-row1">
+                      <h1 class="footer-h1">İletişim</h1>
+                    <ul class="footer-ul">
+                        {% for x in iletisim %}
+                        {% if x.name == 'İletişim' %}
+                                <a href="javascript:void(0)"
+                                        style="color:black">
+                                    <li><i class="fa-solid {{ x.icon }}"></i>
+                                        {{x.field}}
+                                    </li>
+                                </a>
+                            <hr style="margin-bottom: 0px;margin-top: 0px;">
+                            {% else %}
+                            <li><i class="fa-solid {{ x.icon }}"></i>
+                                {{x.field}}</li>
+                            <hr style="margin-bottom: 0px;margin-top: 0px;">
+                            {% endif %}
+
+
+
+                        {% endfor %}
+
+                        </ul>
+                    </div>
+                    <!--ILETISIM END-->
+                <!----------------------------->
+                        <!--  SOSYAL   -->
+                    <div class="footer-row2">
+                        <h1 class="footer-h1">
+                            Bizi Takip Et
+                        </h1>
+                    <ul class="footer-ul-follow">
+                        {% for x in url %}
+                            <li><a href="{{ x.url }}"><i class="fa-brands fa-{{ x.title }} footer-ikon"></i></a></li>
+                        {% endfor %}
+                    </ul>
+                    </div>
+                    <!--  SOSYAL END  -->
+                <!----------------------------->
+                    <!--  HAKKIMIZDA   -->
+                    <div class="footer-row3">
+                        <h1 class="footer-h1">Hakkımızda</h1>
+                    <ul class="footer-ul footer-aboutUs">
+                        {% for x in hakkimizda %}
+
+                            <li>
+                                <a href="javascript:void(0)"><!--{{x.url}}-->
+                                    {{x.field}}</a></li>
+                            <hr style="margin-bottom: 0px;margin-top: 0px;">
+                        {% endfor %}
+
+
+                        </ul>
+                    </div>
+                    <!--  HAKKIMIZDA END  -->
+                <!----------------------------->
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock footer %}

@@ -1,0 +1,71 @@
+{% load static %}
+               
+    {% block content %}
+
+
+
+
+<body>
+    <div class="row">
+        <div class="content">
+            <div id="showcase">
+            <ul class="clear"> 
+
+    {% for x in products %}
+        
+         <li  ><figure ><a href="/product/{{x.slug}}">
+                <img src="{% static 'images/' %}{{ x.urun_foto }}" class="figure-size" >
+                </a>
+               <div class="figure-alti">
+                   <a href="">
+                   <p>{{ x.title }}</p>
+                   
+
+                 
+               
+               
+    
+                </a>
+                <p class="fiyat" ><b>{{ x.price }}₺</b></p>  </div>
+                <div class="sepet-btn" style="flex-wrap:wrap">
+                
+               <a href ="/add-to-cart/{{ x.slug }}"
+                class="sepet">Sepete ekle</a>
+                </div>
+                </figure>
+            </li>
+    
+                {% endfor %}
+     
+
+        </ul>
+<center>
+         <ul style="text-decoration:none">
+
+             {% if products.has_previous %}
+             <a href="?page=1 " style="text-decoration:none">&laquo</a>
+              &nbsp;&nbsp;
+             <a href="?page={{ products.previous_page_number }}"
+                style="text-decoration:none"> < </a>
+             {% endif %}
+
+            {{ products.number }}
+
+             {% if products.has_next %}
+
+             <a href="?page={{ products.next_page_number }}"
+                style="text-decoration:none">
+                 ></a>
+             &nbsp;&nbsp;
+             <a href="?page={{ products.paginator.num_pages }}"
+             style="text-decoration:none">
+                 &raquo</a>
+             {% endif %}
+         </ul>
+                </center>
+        </div>
+        </div>
+
+
+        </div>
+    {% endblock content %}

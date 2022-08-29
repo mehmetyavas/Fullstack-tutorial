@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login</title>
+       
+        <link rel="stylesheet" href="../../styles/stil.css">
+        <link rel="stylesheet" href="../../css/stil.css">
+    <link rel="stylesheet" href="../../css/login.css">
+    
+    <script src="../../js/angular.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.js"></script>
+    </head>
+    <body  ng-app="myApp" ng-controller="userCtrl">
+        
+<div class="center">
+    <form action="/frontend/templates/user/login.html" method="POST" autocomplete="off" id="loginForm">
+
+    <div class="txt_field">
+        <input type="text" name="username" id="username" required>
+        <label  >Username</label><br>
+    </div>
+    <div class="txt_field">
+        <input type="password" name="sifre" id="password" required>
+        <label >Password</label><br>
+    </div>
+    <div class="pass">Forgot Password?</div>
+    <input  type="submit"  value="Login">
+    <div class="signup_link">
+        Not a member?<a href="">Signup</a>
+</div>
+    </form>
+</div>
+<script src="../../js/userController.js"></script>
+<script src="../../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+}
+
+h3{
+    font-size: 55px;
+    color: rgb(92, 10, 10);
+    text-shadow: 0px 1px 1px;
+}
+
+.container{
+    width: 600px;
+    height: auto;
+    margin: auto;
+}
+
+
+.social{
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    padding: 10px;
+    width: 50px;
+    border-radius: 5px;
+    margin: 5px 10px ;
+}
+
+.social:hover{
+    background-color: grey;
+    transition: .2s ease-in-out;
+}
+#iletisim{
+    text-align: center;  
+    background-image: url("../img/a5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 50px;
+}
+
+#iletisimh3{
+    color:rgb(219, 219, 219);
+}
+
+#solform{
+    width: 50%;
+    float: left;
+    padding-right: 5px;
+}
+
+#sagform{
+    width: 50%;
+    float: right;
+    padding-left: 5px;
+}
+
+.form-control{
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: black;
+    background-color: whitesmoke;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+textarea{
+    font-family: Arial;
+}
+
+input[type="submit"]{
+    cursor: pointer;
+    background-color: rgb(131, 0, 148);
+    font-size: 18px;
+    padding: 10px 30px;
+    color: whitesmoke;
+    border: 1px solid gray;
+    border-radius:5px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+input[type="submit"]:hover{
+    box-shadow: 0px 0px 3px 2px rgba(142, 0, 174,.3);
+    transition: .2s ease;
+}
+#adres{
+    width: 450px;
+    float: right;
+    padding: 30px;
+    height: 500px;
+    text-align: left;
+}
+
+#adresh4{
+    font-size: 30px;
+    color:rgb(219, 219, 219);
+}
+
+.adresp{
+    color: rgb(203, 203, 203);
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+#copyright{
+    color: rgb(219, 219, 219);
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+#yukari{
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 50%;
+    font-size: 15px;
+    padding: 8px 12px;
+    margin-top: 15px;
+}
+
+#yukari:hover{
+    background-color: grey;
+    transition: .2s ease-in-out;
+}
+
+.sosyal{
+    text-align: center;
+}
+
+
+

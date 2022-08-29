@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login</title>
+       
+        <link rel="stylesheet" href="{% static 'styles/styleindex.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/stil.css' %}">
+
+    </head>
+    <body>
+    {% include 'navbar.html'  %}
+    {% include 'apps/alert.html' %}
+<div class="center">
+    <form action="{% url 'login' %}" method="POST" autocomplete="off">
+        {% csrf_token %}
+    <div class="txt_field">
+        <input type="text" name="K_Adi"required>
+        <label  >Username</label><br>
+    </div>
+    <div class="txt_field">
+        <input type="password" name="Sifre"required>
+        <label >Password</label><br>
+    </div>
+    <div class="pass">Forgot Password?</div>
+    <input type="submit" value="Login">
+    <div class="signup_link">
+        Not a member?<a href="sign_up.php">Signup</a>
+</div>
+    </form>
+</div>
+</body>
+</html>

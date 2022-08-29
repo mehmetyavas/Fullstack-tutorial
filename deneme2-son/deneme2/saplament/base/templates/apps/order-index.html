@@ -1,0 +1,66 @@
+{% block link %}
+
+            {% include 'link.html' %}
+
+           {% endblock link %}
+{% load static %}
+{% block navbar %}
+
+            {% include 'navbar.html' %}
+    {% include 'apps/alert.html' %}
+
+           {% endblock navbar %}
+
+
+<link rel="stylesheet" href="{% static 'styles/order.css' %}">
+
+  <section class="order-form my-4 mx-4">
+    <div class="container pt-4" style="
+    margin-top: 90px;display:flex;
+    justify-content:space-between;
+">
+
+{% block data %}
+        {% include 'apps/order-data.html' %}
+        {% endblock data %}
+
+
+        <div class="left"><br>
+            <div class="summary">
+
+                <b>Sipariş Özeti</b>
+                <br><br><br>
+                <ul class="summary-ul">
+                    <li>
+                        <p>
+                            <span class="span-title">
+                                ara toplam:</span>
+                            <span class="fiyat">{{ price_sum }} ₺</span>
+                        </p>
+                    </li>
+
+
+                    <hr>
+                    <li>
+                        <p>
+                            <span class="span-title">
+                                toplam:</span>
+                            <span class="fiyat">{{ price_sum }} ₺ </span>
+                        </p>
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+
+        </div>
+    </div>
+  </section>
+
+            {% block footer %}
+
+            {% include 'footer.html' %}
+
+           {% endblock footer %}

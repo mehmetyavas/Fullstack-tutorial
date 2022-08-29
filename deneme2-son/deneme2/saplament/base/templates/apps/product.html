@@ -1,0 +1,127 @@
+{% load static %}
+{% include 'navbar.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% include 'link.html' %}
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'styles/product_css/style.css' %}">
+</head>
+<body>
+
+
+    {% include 'apps/alert.html' %}
+
+
+<div class="w-full max-w-5xl mx-auto mt-20 md:px-0 px-10">
+    <div class="flex items-start justify-between gap-x-[50px]"
+        style="margin-top: 130px;">
+        <div class="product-slides overflow-hidden w-[50%]">
+            <div class="swiper-top">
+                <div class="swiper-wrapper">
+                    {% for x in image %}
+                    <div class="swiper-slide"
+                         style="display:flex;
+                         justify-content:center;">
+                        <img src="{% static 'images' %}/{{ x.product_image }}"
+                             alt="">
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="swiper-thumbnail mt-5">
+                <div class="swiper-wrapper">
+
+                    {% for x in image %}
+                    <div class="swiper-slide">
+                        <img src="{% static 'images' %}/{{ x.product_image }}"
+                             alt="">
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="product-details w-[50%]">
+            {% for x in product %}
+            <div class="product-title">
+                <h1 class="font-medium text-4xl">{{ x.title }}</h1>
+                <hr class="block h-[5px] w-16 bg-gray-900">
+            </div>
+            <a class="bg-blue-500 text-white mt-5 inline-block py-[2px] px-[5px] cursor-pointer text-sm">VISIT SAPLAMENT
+                STORE</a>
+            <div class="rated flex items-center gap-x-2 mt-3">
+                <div class="stars">
+                    <i class="bi bi-star-fill text-yellow-400 text-lg"></i>
+                    <i class="bi bi-star-fill text-yellow-400 text-lg"></i>
+                    <i class="bi bi-star-fill text-yellow-400 text-lg"></i>
+                    <i class="bi bi-star-fill text-yellow-400 text-lg"></i>
+                    <i class="bi bi-star-half text-yellow-400 text-lg"></i>
+                </div>
+                <span class="font-medium">4.7(21)</span>
+            </div>
+            <div class="product-price mt-5">
+                <ul class="flex flex-col gap-y-1">
+<!--                    <li class="font-semibold">Old Price: <span-->
+<!--                            class="line-through font-normal text-red-500">$257.00</span></li>-->
+                    <li class="font-semibold">Price: <span class="font-normal text-blue-500">₺{{ x.price }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-about mt-10">
+                <h1 class="font-semibold text-2xl mb-3">Ürün Açıklaması:</h1>
+                <p class="leading-7 text-gray-600">{{ x.urun_desc }}</p>
+            </div>
+            <div class="product-options mt-7">
+                <ul class="flex flex-col gap-y-1">
+
+                    <li class="flex gap-x-3 items-center">
+                        <i class="bi bi-check-circle-fill text-red-500 text-lg"></i>
+                        <span class="font-semibold flex gap-x-1">Avaible: <span
+                                class="font-normal">in stock</span></span>
+                    </li>
+                    <li class="flex gap-x-3 items-center">
+                        <i class="bi bi-check-circle-fill text-red-500 text-lg"></i>
+                        <span class="font-semibold flex gap-x-1">Category: <span class="font-normal">{{ x.category }}</span></span>
+                    </li>
+                    <li class="flex gap-x-3 items-center">
+                        <i class="bi bi-check-circle-fill text-red-500 text-lg"></i>
+                        <span class="font-semibold flex gap-x-1">Shipping Are: <span class="font-normal">All over the world</span></span>
+                    </li>
+                    <li class="flex gap-x-3 items-center">
+                        <i class="bi bi-check-circle-fill text-red-500 text-lg"></i>
+                        <span class="font-semibold flex gap-x-1">Shipping Fee: <span
+                                class="font-normal">Free</span></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-buttons mt-7 flex items-center gap-x-5">
+                <a href="/add-to-cart/{{ x.slug }}" class="bg-blue-600 text-white h-10 rounded-[24px] px-5 flex items-center gap-x-3">
+                    <span>Add To Cart</span>
+                    <i class="bi bi-cart-fill"></i>
+                </a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div><br><br><br><br>
+
+<script src="{% static 'js/app.js' %}"></script>
+
+
+{% include 'footer.html' %}
+</body>
+</html>

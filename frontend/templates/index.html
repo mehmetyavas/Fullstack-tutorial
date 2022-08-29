@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saplament | Anasayfa</title>
+    {% block link %}
+
+            {% include 'link.html' %}
+
+           {% endblock link %}
+
+</head>
+<body>
+    <div class="banner"></div>
+    
+            {% block navbar %}
+
+            {% include 'navbar.html' %}
+            {% include 'apps/alert.html' %}
+
+           {% endblock navbar %}
+        
+
+
+<div class="row">
+                    <header id="header">
+
+            <div class="navbar order-2">
+        <ul class="ul-nav col-sm-12 ">
+            {% for x in category %}
+            <li class='li-nav'><a href="/category/{{ x.slug }}">{{ x.category_name }}</a></li>
+                     {% endfor %}
+
+        </ul>
+            </div>
+        </header>
+        </div>
+
+        </div>
+        </div>
+    <div class="wrapper-row3">
+        <div class="container">
+            <!--index-urun.php START-->
+           {% block content %}
+
+            {% include 'urun.html' %}
+
+           {% endblock content %}
+<!--index-urun.php END-->
+
+        </div>
+    </div>
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock footer %}
+    
+</body>
+</html>

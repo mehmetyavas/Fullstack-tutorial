@@ -1,0 +1,77 @@
+{% block navbar %}
+{% load static %}
+
+    <div class="wrapper-row1">
+        <div class="container">
+
+            <div id="topbar" class="clear-topbar">
+<nav class="nav">
+    <ul class="ul-topbar">
+        <a href="/">
+            <li class="li-topbar"><i class="fa-solid fa-house ikon"></i>Home</li>
+        </a>
+        {% if user.is_authenticated %}
+        <a href="/order-summary/">
+            <li class="li-topbar"><i class="fa-solid fa-house ikon"></i>Order</li>
+        </a>
+        <a href="javascript:{document.getElementById('logout').submit()}">
+            <li class="nav-item li-topbar">
+                {{ user.username }} - Logout
+                <form action="{% url 'logout' %}" method="POST" id="logout">
+                    {% csrf_token %}
+                    <input type="hidden">
+                </form>
+
+            </li>
+       </a>
+        {% else %}
+        <a href="{% url 'login' %}">
+            <li {% if 'login' in request.path %}
+            class="nav-item active li-topbar"
+            {% else %}
+            class="nav-item li-topbar"
+            {% endif %}>
+                <i class="fa-solid fa-arrow-right-to-bracket ikon"></i>Giriş</li>
+       </a>
+       <a href="{% url 'register' %}">
+           <li {% if 'register' in request.path %}
+           class="nav-item active li-topbar"
+           {% else %}
+           class="nav-item li-topbar"
+           {% endif %}
+           >
+               <i class="fa-solid fa-arrow-right-to-bracket ikon"></i>register</li>
+      </a>
+        {% endif %}
+
+
+
+        <a href="/cart/" >
+        <li class="li-topbar">
+            <span class="sayi"
+            style="color:red;
+            ">
+            {{ count }}
+        </span>
+
+        <i class="fa-solid fa-basket-shopping ikon"></i>
+
+        Sepet</li>
+        </a>
+    </ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="wrapper-row2">
+    <div class="container cont-row-2 " >
+    <div id="hgroup order-1" >
+                <h1 class="logo"
+                style="font-size:42px">
+                    <a href="/">Saplament</a>
+                </h1>
+                <small>Protein, Yardımcılar, Vitaminler</small>
+            </div>
+
+
+   {% endblock navbar %}

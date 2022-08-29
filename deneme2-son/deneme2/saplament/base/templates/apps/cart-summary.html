@@ -1,0 +1,83 @@
+{% extends 'apps/order-index.html' %}
+{% load static %}
+{% block data %}
+
+
+<div class="row "
+style="
+    margin-right: 30px;">
+
+    <div class="content table">
+    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Fotoğraf</th>
+                                    <th scope="col">Ürün adı</th>
+                                    <th scope="col"> Fiyat</th>
+                                    <th scope="col">Adet</th>
+                                    <th scope="col">Toplam Fiyat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        {% for cart in cart_item %}
+                            <tr>
+                                <th scope="row">#</th>
+                                <td style="display:flex;justify-content:center;align-items:center">
+                                   <a href="{{ x.id }}"><img src="{% static 'images/' %}{{ cart.item.urun_foto }}"
+                                        class="figure-size" style="height:85px;width:85px"  ></a>
+                            </td>
+                                <td style="text-align:center; padding-top: 35px;" >
+                                {{ cart.item.title }}
+                            </td>
+                                <td style="text-align:center; padding-top: 35px;">
+                                {{ cart.item.price }}₺
+                            </td>
+
+                                <td style="text-align:center; padding-top: 35px;">
+
+                               {{ cart.quantity }}
+
+                            </td>
+
+                                <td style="text-align:center; padding-top: 35px;">
+
+                                    {{ cart.total_price }}₺
+
+
+
+
+
+                                </a> </td>
+
+                            </tr>
+
+                        {% endfor %}
+                                <tr>
+                                    <td></td>
+                                    <td colspan="4"><b> Toplam Fiyat</b></td>
+                                    <td><center> {{ price_sum }} ₺ </center></td>
+
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="satin-al">
+                   <a class="btn-a" href="/order/"> <div class="satin-al-btn"> Satın AL</div></a>
+                         </div>
+
+
+
+
+
+    </div>
+    </div>
+
+
+{% endblock data %}
