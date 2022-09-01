@@ -20,11 +20,11 @@
     <form action="/frontend/templates/user/login.html" method="POST" autocomplete="off" id="loginForm">
 
     <div class="txt_field">
-        <input type="text" name="username" id="username" required>
+        <input type="text" ng-model="vm.username"  name="username" id="username" required>
         <label  >Username</label><br>
     </div>
     <div class="txt_field">
-        <input type="password" name="sifre" id="password" required>
+        <input type="password" ng-model="vm.password"  name="password" id="password" required>
         <label >Password</label><br>
     </div>
     <div class="pass">Forgot Password?</div>
@@ -34,7 +34,7 @@
 </div>
     </form>
 </div>
-<script src="../../js/userController.js"></script>
-<script src="../../js/app.js"></script>
+<!-- <script src="../../js/userController.js"></script>
+<script src="../../js/app.js"></script> -->
 </body>
 </html>

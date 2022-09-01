@@ -1,17 +1,17 @@
-var app = angular.module("myApp", ["ngRoute"]);
+var app = angular.module("myApp", ["ngRoute",]);
 app.config(function ($routeProvider) {
-  $routeProvider
-    .when("/", {
-      templateUrl: "index.html",
-    })
+  $routeProvider.when("/", {
+    templateUrl: "index.html",
+  });
 });
-var url = "http://127.0.0.1:8000/api/products/";
 
 app.controller("controller", function ($scope, $http) {
   $http.get("http://127.0.0.1:8000/api/category/").then(function (response) {
     // console.log($scope.category.data);
     $scope.category = response;
   });
+  var token = localStorage.getItem("token");
+  $scope.token=token
   var current_page = "http://127.0.0.1:8000/api/products/";
 
   $scope.next = function () {
@@ -35,13 +35,20 @@ app.controller("controller", function ($scope, $http) {
     }
   };
 
+
+
   $http.get(current_page).then(function (response) {
     $scope._page = response.data.pagination;
     $scope.products = response.data.results;
     $scope.dene = $scope._page.current.split("=")[1];
     // current_page = $scope._page.current;
+  
   });
 
+  $scope.logout= function(){
+    localStorage.removeItem('token')
+    window.location.href= "index.html"    
+  }
   $scope.categoryBtn = function (slug) {
     $http
       .get("http://127.0.0.1:8000/api/category/" + slug + "/products")

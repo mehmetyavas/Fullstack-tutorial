@@ -1,10 +1,16 @@
 <link rel="stylesheet" href="../css/still.css">
 <nav>
     <ul class="ul-topbar">
-        <a href="#!"> 
+        <a href="#!/"> 
             <li class="li-topbar"><i class="fa-solid fa-house ikon"></i>Home</li>
         </a>
-        <a href="templates/user/login.html"> <li class="li-topbar"> <i class="fa-solid fa-arrow-right-to-bracket ikon"></i>Giriş</li>
+        <div ng-if="token == null">
+            <a href="templates/user/login.html"> <li class="li-topbar"> <i class="fa-solid fa-arrow-right-to-bracket ikon"></i>Giriş</li>
+
+        </div>
+        <div ng-if="token != null">
+            <a href="" ng-click="logout()"> <li class="li-topbar"> <i class="fa-solid fa-arrow-right-to-bracket ikon"></i>çıkış yap</li>
+        </div>
         </a>
         <a href="cart.html" >
         

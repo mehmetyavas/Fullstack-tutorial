@@ -1,6 +1,17 @@
-{% extends 'index.html' %}
-{% block content %}
 
-{% include 'urun.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/angular.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.js"></script>
 
-{% endblock content %}
+    <title>Document</title>
+</head>
+<body ng-app="myApp" ng-controller="ctrl2">
+    {{ url }}! (rootscope)
+    <script src="../js/controller.js"></script>
+</body>
+</html>
